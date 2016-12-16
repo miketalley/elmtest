@@ -1,6 +1,7 @@
 module Main exposing (..)
 
-import Html exposing (Html, div, text, program)
+import Html exposing (Html, div, text, button, program)
+import Html.Events exposing (onClick)
 import Mouse
 import Keyboard
 
@@ -15,6 +16,7 @@ initialModel =
   , event = "None"
   }
 
+-- Note: tuples
 init : ( Model, Cmd Msg )
 init =
   ( initialModel, Cmd.none )
@@ -28,8 +30,10 @@ type Msg
 view : Model -> Html Msg
 view model =
   div []
-    [ text (toString model.count)
-    , text (toString model.event)
+    [ div[]
+        [ text (toString model.count) ]
+      , div[]
+        [ text (toString model.event) ]
     ]
 
 -- Update
